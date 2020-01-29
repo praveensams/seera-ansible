@@ -48,3 +48,22 @@
         - "/root/.bashrc"
         - "/root/.bash_profile"
       when: ( 'maven1' not in content )
+
+    - name: Installing jenkins
+      get_url:
+        url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+        dest: /etc/yum.repos.d/jenkins.repo
+
+    - name: Import RPM key
+      shell: |
+              rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+    - name: installing jenkins
+      yum:
+        name: "jenkins"
+        state: "installed"
+  
+    - name: restarting jenkins service
+      service: 
+        name: "jenkins"
+        state: "started"

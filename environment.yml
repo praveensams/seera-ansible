@@ -4,6 +4,14 @@
 
   tasks:
 
+    - name: installing java system
+      yum:
+        name: "{{ item}}"
+        state: "installed"
+      with_items:
+        - "java-1.8.0-openjdk"
+      tags: "java"
+
     - name: Creating folder when not exists
       shell: |
             ls /

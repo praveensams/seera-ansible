@@ -23,31 +23,31 @@
       block:
         - name: creating folder
           file:
-            path: /maven1
+            path: /maven
             state: directory
     
         - name: unarchiving folders
           unarchive:
             src: https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-            dest: /maven1
+            dest: /maven
             remote_src: yes
        
         - name: Moving folders to /maven
           shell: |
-                  mv /maven1/apache-maven-3.6.3/* /maven1/
-      when: ( 'maven1' not in result.stdout ) 
+                  mv /maven/apache-maven-3.6.3/* /maven/
+      when: ( 'maven' not in result.stdout ) 
 
 
     - name: Adding line
       lineinfile:
         path: "{{ item }}"
         line: |
-               export PATH=/maven1/bin:/java/bin:$PATH
+               export PATH=/maven/bin:/java/bin:$PATH
       with_items:
         - "/etc/profile"
         - "/root/.bashrc"
         - "/root/.bash_profile"
-      when: ( 'maven1' not in content )
+      when: ( 'maven' not in content )
 
     - name: Installing jenkins
       get_url:

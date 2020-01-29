@@ -6,10 +6,8 @@
 
     - name: installing java system
       yum:
-        name: "{{ item}}"
+        name: ["java-1.8.0-openjdk"]
         state: "installed"
-      with_items:
-        - "java-1.8.0-openjdk"
       tags: "java"
 
     - name: Creating folder when not exists

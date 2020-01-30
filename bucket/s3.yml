@@ -1,5 +1,8 @@
 - hosts: dev1 
   become: true
+  vars:
+    aws_access_key: AKIAQNKZZYLFV25QPOV2
+    aws_secret_key: 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
   
 
   tasks:
@@ -9,8 +12,8 @@
         object: /etc/passwd
         src: /tmp/sam
         mode: put
-        aws_access_key: AKIAQNKZZYLFV25QPOV2
-        aws_secret_key: 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
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
       delegate_to: "localhost"
 
 
@@ -21,5 +24,5 @@
         object: /etc/passwd
         dest: /tmp/sam1
         mode: get
-        aws_access_key: AKIAQNKZZYLFV25QPOV2
-        aws_secret_key: 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
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"

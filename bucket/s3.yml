@@ -1,9 +1,8 @@
 - hosts: dev1 
   become: true
   vars:
-    aws_access_key: AKIAQNKZZYLFV25QPOV2
-    aws_secret_key: 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
-  
+    aws_access_key: AKIA4O2MP3QUB4AMRM2A
+    aws_secret_key: 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
 
   tasks:
     - name: installing aws cli

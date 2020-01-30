@@ -2,7 +2,7 @@
 localhost aws_access_key="AKIAVHINJLHVHWLTMQBD" aws_secret_key="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" region="us-west-1"
 
 [dev1]
-jenkins ansible_ssh_host=44.228.33.126 ansible_ssh_user=ec2-user
+jenkins ansible_ssh_host=44.232.184.98 ansible_ssh_user=ec2-user
 
 
 [dev1:vars]

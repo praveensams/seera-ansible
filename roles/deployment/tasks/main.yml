@@ -1,0 +1,15 @@
+---
+# tasks file for deployment
+
+- name: copying Start script 
+  template:
+    src: tas.sh
+    dest: /usr/local/bin/tas.sh
+    mode: 755
+
+- name: Copying service script
+  template:
+    src: tas.service
+    dest: /etc/systemd/system/tas.service
+    mode: 755
+  

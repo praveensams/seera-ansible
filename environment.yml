@@ -67,3 +67,14 @@
       service: 
         name: "jenkins"
         state: "started"
+      register: restart-res
+
+    - name: pause for some time
+      pause:
+        seconds: 30
+
+    - name: restarting jenkins service
+      service:
+        name: "jenkins"
+        state: "restarted"
+      when: ( restart-res.rc != 0 )

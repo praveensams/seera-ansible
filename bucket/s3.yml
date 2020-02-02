@@ -1,10 +1,16 @@
 - hosts: dev1 
   become: true
   vars:
-    aws_access_key: AKIA4O2MP3QUB4AMRM2A
-    aws_secret_key: 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
+    aws_access_key: AKIARRJ7UK2BUYLBJZ42
+    aws_secret_key: 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
 
   tasks:
+    - name: Installing boto3
+      easy_install: 
+        name: boto3
+        state: latest 
+      tags: boto3
+
     - name: installing aws cli
       aws_s3:
         bucket: seerauploads
